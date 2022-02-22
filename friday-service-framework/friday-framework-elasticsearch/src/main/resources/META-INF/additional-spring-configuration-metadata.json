@@ -1,0 +1,9 @@
+{
+  "properties": [
+    {
+      "name": "spring.elasticsearch.rest.high-level-client.enable",
+      "type": "java.lang.String",
+      "description": "ElasticSearch客户端RestHighLevelClient是否启用."
+    }
+  ]
+}
