@@ -1,8 +1,7 @@
 # friday-service
 > 项目简介
-
-friday-service由多个大的模块组成
 ***
+friday-service由多个大的模块组成
 | 模块  | 描述 |
 | :----- | :----- |
 | friday-service-parent |  friday-service的父工程，管理项目的Maven版本依赖  |
