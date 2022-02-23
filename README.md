@@ -13,7 +13,7 @@ friday-service由多个大的模块组成
 | :----- | :----- |
 | friday-util-base |  返回结果类、字符串操作工具类、集合操作工具类等常用的基础工具类库  |
 | friday-util-constant |  正则表达式、标点符号常量、日期常量等常用的基础常量类库 |
-| friday-util-freemarker |  friday-service的框架模块，包含了常用框架的集成，例如redis、elasticsearch、mq等  |
+| friday-util-freemarker |  集成freemarker模板引擎的常用表达式解析类库  |
 ***
 
 ### friday-service-framework
