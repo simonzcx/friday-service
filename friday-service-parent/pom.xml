@@ -113,35 +113,4 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- 用于上传私有jar包到maven私服仓库 -->
-    <distributionManagement>
-        <repository>
-            <id>dev-releases</id>   <!-- id必须和settings.xml文件server标签中的id一致 -->
-            <url>http://dev.citybrain.link:8701/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>dev-snapshots</id>  <!-- id必须和settings.xml文件server标签中的id一致 -->
-            <url>http://dev.citybrain.link:8701/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
-
-    <!-- 用于从远程仓库拉取jar包（优先级高于本地maven settings.xml的仓库配置） -->
-    <repositories>
-        <repository>
-            <id>dev-maven</id>
-            <name>dev maven</name>
-            <url>http://dev.citybrain.link:8701/repository/maven-public/</url>
-        </repository>
-        <repository>
-            <id>dev-snapshots</id>
-            <name>dev snapshots</name>
-            <url>http://dev.citybrain.link:8701/repository/maven-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
-
 </project>
