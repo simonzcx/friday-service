@@ -105,7 +105,7 @@ http.host: "0.0.0.0"
 **管道配置**<br />
 `vim /home/docker/elk/logstash/pipeline/logstash.conf`
 
-```json
+```bash
 input {
   beats {
     host => "0.0.0.0"
