@@ -163,7 +163,7 @@ Grok预定义了部分正则表达式，可参考：<br />
 
 举例说明Grok使用：
 
-```json
+```bash
 # 假设日志为：
 16:27:21.338 [reactor-http-epoll-3] INFO  logger_name:c.a.i.s.g.f.GlobalGatewayFilterConfig - [TID: N/A] - message:|#|wg_dy|#|测试网关接口日志|#|http|#|POST|#|/service-center/164810601066|#|192.168.3.150|#|service-center|#|2022-03-24|#|service-center|#|能力中心|#|杭州市公安局|#|能力中心|#|null|#|null|#|null|#|null|#|200|#|1648110441234|#|1648110441337|#|103
 
