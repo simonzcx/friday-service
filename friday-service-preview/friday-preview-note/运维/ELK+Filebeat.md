@@ -145,17 +145,19 @@ output {
 
 其中【**管道详情配置**】包含输入(input)、过滤(filter)、输出(ouput)
 
-- **INPUT 输入**
+##### 3.2.2.1 INPUT 输入 <br />
 
 支持多种类型，网关使用的类型为beats(网关通过filebeat采集输入日志，所以类型为beats)，参考链接：<br />
 [中文博客链接1](https://doc.yonyoucloud.com/doc/logstash-best-practice-cn/input/stdin.html) <br />
 [官网链接](https://www.elastic.co/guide/en/logstash/7.14/index.html) <br />
 ![img.png](../img/运维/Logstash-input.png)
 
-- **FILTER 过滤**
+##### 3.2.2.2 FILTER 过滤 <br />
 
 用于过滤解析日志，按照格式输出到ES。<br />
+
 **① Grok插件：**
+
 Filter模块使用到了Grok插件，Grok 是一种采用组合多个预定义的正则表达式。用来匹配分割文本，并且映射到关键字的工具。可用于对日志数据进行预处理，主要思想就是用正则的方式匹配出字段，然后映射成某个字段。<br />
 Grok预定义了部分正则表达式，可参考：<br />
 [Logstash配置Grok语法链接](https://cloud.tencent.com/developer/article/1499881) <br />
@@ -202,9 +204,10 @@ Grok预定义了部分正则表达式，可参考：<br />
 **预定义正则：** %{GREEDYDATA:remark}  --> %{Grok预定义正则:字段名}，字段名可不填，字段名不填表示匹配但不输出。
 
 **② date插件：** <br />
+
 Logstash解析日志会默认有个@timestamp属性，@timestamp记录的时间戳为UTC时间（由Logstash自动生成），比我们的时区早8小时。由于时区问题可能会产生数据记录时间不准确等问题，可以使用自定义的时间。<br />
 
-- **OUTPUT 输出** <br />
+##### 3.2.2.3 OUTPUT 输出 <br />
 用于配置输出位置，网关日志输出到ES存储，ES索引为gateway-log，索引不存在时自动创建。
 
 #### 3.2.3 启动命令
