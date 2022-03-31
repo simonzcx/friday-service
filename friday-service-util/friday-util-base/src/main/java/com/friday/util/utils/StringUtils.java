@@ -1,12 +1,9 @@
 package com.friday.util.utils;
 
 
-
 import com.friday.constant.base.StringConstants;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * 字符串工具类
@@ -271,5 +268,28 @@ public final class StringUtils {
             return src;
         }
         return new String(Arrays.copyOf(bytes, len));
+    }
+
+    /**
+     * 把长报文拆分成多个子报文
+     * 拆分规则：以begin开始，以end结尾
+     *
+     * @param info  待拆分的长报文
+     * @param begin 开始字符
+     * @param end   结尾字符
+     * @return 符合规则的子报文集合
+     */
+    public static List<String> getChildMsgByParent(String info, String begin, String end) {
+        //通过起始字符拆分成数组
+        String[] split = info.split(begin);
+        List<String> list = new ArrayList<>();
+        //遍历，从第二个元素开始取值（第一个元素为无效元素）
+        for (int i = 1; i < split.length; i++) {
+            String str = split[i].substring(0, split[i].lastIndexOf(end) + end.length());
+            if (str.length() > end.length()) {
+                list.add(begin + str);
+            }
+        }
+        return list;
     }
 }

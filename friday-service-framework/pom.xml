@@ -13,6 +13,7 @@
         <module>friday-framework-swagger</module>
         <module>friday-framework-elasticsearch</module>
         <module>friday-framework-logstash</module>
+        <module>friday-service-minio</module>
     </modules>
 
     <artifactId>friday-service-framework</artifactId>
