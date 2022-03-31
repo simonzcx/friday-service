@@ -15,4 +15,11 @@
     <name>friday-util-freemarker</name>
     <description>Freemarker文件操作工具包</description>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+        </dependency>
+    </dependencies>
+
 </project>

@@ -19,11 +19,10 @@
 
     <properties>
         <java.version>1.8</java.version>
+
+        <!-- 架构相关 -->
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
-        <fastjson.version>1.2.78</fastjson.version>
         <swagger.version>3.0.0</swagger.version>
-        <swagger-annotations.version>1.5.20</swagger-annotations.version>
-        <apache-commons.version>3.12.0</apache-commons.version>
         <elasticsearch.version>7.14.0</elasticsearch.version>
         <logstash-logback-encoder.version>7.0</logstash-logback-encoder.version>
 
@@ -33,33 +32,26 @@
         <mybatis.version>2.2.0</mybatis.version>
         <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
 
+        <!-- 工具包相关 -->
+        <freemarker.version>2.3.28</freemarker.version>
+        <apache-commons.version>3.12.0</apache-commons.version>
+        <fastjson.version>1.2.78</fastjson.version>
+
+        <!-- friday-service -->
         <friday-service-util.version>1.0.0-SNAPSHOT</friday-service-util.version>
         <friday-service-framework.version>1.0.0-SNAPSHOT</friday-service-framework.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
 
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-lang3</artifactId>
-                <version>${apache-commons.version}</version>
-            </dependency>
-
-            <!-- swagger start! -->
+            <!-- 架构相关 -->
             <dependency>
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-boot-starter</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
-            <!-- swagger end! -->
 
-            <!-- es start! -->
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>
@@ -71,9 +63,46 @@
                 <artifactId>logstash-logback-encoder</artifactId>
                 <version>${logstash-logback-encoder.version}</version>
             </dependency>
-            <!-- es end! -->
 
-            <!-- friday-service-util -->
+            <!-- 数据库相关 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+
+            <!-- 工具包相关 -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>${freemarker.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache-commons.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <!-- friday-service -->
             <dependency>
                 <groupId>com.friday</groupId>
                 <artifactId>friday-util-base</artifactId>
@@ -92,24 +121,6 @@
                 <version>${friday-service-framework.version}</version>
             </dependency>
 
-
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 

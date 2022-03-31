@@ -26,12 +26,12 @@ ELK是一个应用套件，由Elasticsearch、Logstash、Kibana三部分组成�
 **依赖关系：** KIbana、Logstash依赖与Elasticsearch，Filebeat依赖于Logstash，所以按照依赖关系顺序部署。
 
 ### 3.1 Elasticsearch
-#### 3.1.1 创建目录
 
+#### 3.1.1 创建目录
 ```bash
 mkdir -p /home/docker/elk/elasticsearch/{config,data,plugins}
 # 配置权限，未配置情况下启动报错
-chmod 777 /home/docker/elk/elasticsearch/**
+chmod 777 /home/docker/elk/elasticsearch/{config,data,plugins}
 ```
 
 #### 3.1.2 配置文件
