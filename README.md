@@ -6,6 +6,7 @@ friday-service由多个大的模块组成
 | friday-service-parent |  friday-service的父工程，管理项目的Maven版本依赖  |
 | friday-service-util |  friday-service的工具模块，包含了常用的常量、枚举、工具类 |
 | friday-service-framework |  friday-service的框架模块，包含了常用框架的集成，例如redis、elasticsearch、mq等  |
+| friday-service-preview | friday-service的技术预演模块，包含了学习技术时的一些DEMO以及整理的一些笔记 |
 ***
 
 ### friday-service-util
