@@ -2,16 +2,16 @@
 ## 1 简介
 ELK是一个应用套件，由Elasticsearch、Logstash、Kibana三部分组成，简称ELK。它是一套开源免费、功能强大的日志分析管理系统。ELK可以将我们的系统日志、网站日志、应用系统日志等各种日志进行收集、过滤、清洗、然后进行集中存放并可用于实时检索、分析。这三款软件都是开源软件，通常配合使用，而且又先后归于Elastic.co公司名下，故又称为ELK Stack。<br />
 
-![](../img/运维/ELK.png)
+![](../img/运维/ELK+Filebeat/ELK.png)
 
 方案一：ELK，使用Logstash采集日志，需要项目中集成Logstash的SDK，通过Logback（或其他日志框架）配置文件配置Logstash地址等信息。日志的采集是通过HTTP的方式经过Logstash保存到ES中，这种方式对性能占用较高。
 
-![](../img/运维/ELKF.png)
+![](../img/运维/ELK+Filebeat/ELKF.png)
 
 方案二：ELKF，每台服务分别将日志写入相应文件夹下，每台服务分别部署Filebeat，Filebeat采集自定文件夹下的日志推送给Logstash进行过滤，最后保存到ES中。<br />Logstash 拥有比 Filebeat 更为丰富的功能，但能力越大，背负的越多，意味着 Logstash 作为采集工具会比 Filebeat 占用更多的系统资源。其中有个依据Logstash 默认的堆内存大小是 1G，Filebeat 占用内存仅仅大概是 10M 左右。
 
 ## 2 架构
-![](../img/运维/Gateway-ELKF.png)
+![](../img/运维/ELK+Filebeat/Gateway-ELKF.png)
 
 
 ## 3 部署
@@ -82,7 +82,7 @@ docker run -d --name dev-elasticsearch \
 #### 3.1.4 校验按照结果
 `http://192.168.6.122:9200`<br />
 显示效果如下就成功了<br />
-![img.png](../img/运维/Elasticsearch.png)
+![img.png](../img/运维/ELK+Filebeat/Elasticsearch.png)
 
 ### 3.2  Logstash
 #### 3.2.1 创建目录
@@ -150,7 +150,7 @@ output {
 支持多种类型，网关使用的类型为beats(网关通过filebeat采集输入日志，所以类型为beats)，参考链接：<br />
 [中文博客链接1](https://doc.yonyoucloud.com/doc/logstash-best-practice-cn/input/stdin.html) <br />
 [官网链接](https://www.elastic.co/guide/en/logstash/7.14/index.html) <br />
-![img.png](../img/运维/Logstash-input.png)
+![img.png](../img/运维/ELK+Filebeat/Logstash-input.png)
 
 ##### 3.2.2.2 FILTER 过滤 <br />
 
