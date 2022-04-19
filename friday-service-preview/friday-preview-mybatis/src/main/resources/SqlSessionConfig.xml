@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!--开启日志输出-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING" />
+    </settings>
+
+    <!--配置类别名，配置后在Mapper配置文件（通常我们将编写SQL语句的配置文件成为Mapper配置文件）
+    中需要使用pojo包中的类时，使用简单类名即可-->
+    <typeAliases>
+        <package name="com.friday.mybatis.pojo.data"/>
+    </typeAliases>
+
+    <environments default="development">
+        <environment id="development">
+            <!-- 使用JDBC事务管理器，目前由MyBatis管理 -->
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://168.0.0.2:3307/preview-mybatis?characterEncoding=UTF-8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="Simon@2020"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <mappers>
+        <package name="com.friday.mybatis.mapper"/>
+    </mappers>
+
+</configuration>

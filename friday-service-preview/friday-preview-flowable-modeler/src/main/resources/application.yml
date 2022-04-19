@@ -1,0 +1,12 @@
+server:
+  port: 8081
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://168.0.0.2:3307/friday_flowable_modeler?characterEncoding=UTF-8
+    username: root
+    password: Simon@2020
+
+logging:
+  level:
+    org.flowable.ui.modeler.rest.app: debug

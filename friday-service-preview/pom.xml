@@ -5,6 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>friday-preview-note</module>
+        <module>friday-preview-flowable</module>
+        <module>friday-preview-flowable-modeler</module>
     </modules>
 
     <parent>

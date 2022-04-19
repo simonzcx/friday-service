@@ -39,3 +39,15 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 ```
 source ~/.zshrc
 ```
+### 5 brew安装rectangle
+```
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+
+brew install rectangle
+```
+
+### 6 SSH免密
+```
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.111
+```

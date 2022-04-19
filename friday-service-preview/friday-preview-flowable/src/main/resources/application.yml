@@ -1,0 +1,31 @@
+server:
+  port: 8030
+
+spring:
+  application:
+    name: flowengine
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://168.0.0.2:3307/friday_flowable?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+    username: root
+    password: Simon@2020
+
+flowable:
+  database-schema-update: true
+  async-executor-activate: false
+  # 保存历史数据级别设置为full最高级别，便于历史数据的追溯
+  history-level: full
+
+  # 是否开启自动部署流程定义 默认true
+  check-process-definitions: false
+  # 流程定义文件位置
+  process-definition-location-prefix: classpath*:/bpmn/
+
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+
+# 配置log日志
+logging:
+  # 指定log日志文件
+  config: classpath:logback.xml
+

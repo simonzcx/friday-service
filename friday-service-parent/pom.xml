@@ -40,6 +40,9 @@
         <!-- friday-service -->
         <friday-service-util.version>1.0.0-SNAPSHOT</friday-service-util.version>
         <friday-service-framework.version>1.0.0-SNAPSHOT</friday-service-framework.version>
+
+        <!-- flowable -->
+        <flowable-version>6.4.1</flowable-version>
     </properties>
 
     <dependencyManagement>
@@ -121,7 +124,60 @@
                 <version>${friday-service-framework.version}</version>
             </dependency>
 
+            <!-- flowable -->
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-ui-modeler-conf</artifactId>
+                <version>${flowable-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-ui-modeler-rest</artifactId>
+                <version>${flowable-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-ui-modeler-logic</artifactId>
+                <version>${flowable-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.flowable</groupId>
+                <artifactId>flowable-spring-boot-starter-process</artifactId>
+                <version>${flowable-version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <!-- 用于上传私有jar包到maven私服仓库 -->
+    <distributionManagement>
+        <repository>
+            <id>friday-releases</id>   <!-- id必须和settings.xml文件server标签中的id一致 -->
+            <url>http://168.0.0.2:8081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>friday-snapshots</id>  <!-- id必须和settings.xml文件server标签中的id一致 -->
+            <url>http://168.0.0.2:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+
+    <!-- 用于从远程仓库拉取jar包（优先级高于本地maven  settings.xml的仓库配置） -->
+    <repositories>
+        <repository>
+            <id>friday-maven</id>
+            <name>friday maven</name>
+            <url>http://168.0.0.2:8081/repository/maven-public/</url>
+        </repository>
+        <repository>
+            <id>friday-snapshots</id>
+            <name>friday snapshots</name>
+            <url>http://168.0.0.2:8081/repository/maven-snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
 
 </project>

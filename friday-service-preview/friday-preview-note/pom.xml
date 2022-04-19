@@ -9,6 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>com.friday</groupId>
     <artifactId>friday-preview-note</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>friday-preview-note</name>
+    <description>日常学习笔记</description>
 
 </project>
