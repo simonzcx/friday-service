@@ -6,7 +6,7 @@ spring:
     name: flowengine
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://168.0.0.2:3307/friday_flowable?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
+    url: jdbc:mysql://168.0.0.2:3007/friday_flowable?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowMultiQueries=true&nullCatalogMeansCurrent=true
     username: root
     password: Simon@2020
 

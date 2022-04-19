@@ -11,7 +11,7 @@ springboot：2.3.12.RELEASE<br />
 flowable：6.4.1
 
 ### Step1 pom文件
-![img.png](../img/运维/SpringBoot+Flowable/flowable-ui-modeler模块.png)
+![img.png](../img/开发/SpringBoot+Flowable/flowable-ui-modeler模块.png)
 根据Flowable开源代码发现flowable-ui-modeler核心模块。
 **mysql数据源**：默认是h2数据库，此处引用的是mysql数据库。
 ```xml
@@ -52,7 +52,7 @@ flowable：6.4.1
 
 ### Step2 静态资源及配置文件
 **1）从源码制相关的静态资源及配置文件**
-![img.png](../img/运维/SpringBoot+Flowable/flowable-ui-modeler静态资源及配置文件.png)
+![img.png](../img/开发/SpringBoot+Flowable/flowable-ui-modeler静态资源及配置文件.png)
 
 **2）自定义配置文件**
 ```yaml
@@ -72,7 +72,7 @@ logging:
 ```
 
 ### Step3 重写 flowable-ui-modeler 默认的类加载
-![img.png](../img/运维/SpringBoot+Flowable/flowable-ui-modeler入口.png)
+![img.png](../img/开发/SpringBoot+Flowable/flowable-ui-modeler入口.png)
 从源码中看到入口为2个类，需要对org.flowable.ui.modeler.conf.ApplicationConfiguration 进行相应的改造，剔除不需要的相关依赖，添加缺少的依赖。
 
 **1）自定义全局配置类**
@@ -503,22 +503,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 </definitions>
 ```
 图1：指定候选人
-![img.png](../img/运维/SpringBoot+Flowable/指定候选人节点.png)
-![img.png](../img/运维/SpringBoot+Flowable/指定候选人配置.png)
+![](../img/开发/SpringBoot+Flowable/指定候选人节点.png)
+![](../img/开发/SpringBoot+Flowable/指定候选人配置.png)
 > 结合XML文件注解：<br />
 > flowable:candidateUsers="张三,李四"  指定候选人，一般为用户ID，多个以逗号（,）相隔
 
 图2：动态审批人审批
-![img.png](../img/运维/SpringBoot+Flowable/动态审批人节点.png)
-![img.png](../img/运维/SpringBoot+Flowable/动态审批人变量.png)
+![](../img/开发/SpringBoot+Flowable/动态审批人节点.png)
+![](../img/开发/SpringBoot+Flowable/动态审批人变量.png)
 > 结合XML文件注解：<br />
 > flowable:candidateUsers="${assignee}" 候选人变量，一般为用户ID，多个以逗号（,）相隔
 
 图3：并行（parallel）会签审批（动态）
-![img.png](../img/运维/SpringBoot+Flowable/并行会签节点.png)
+![](../img/开发/SpringBoot+Flowable/会签并行节点.png)
 
 > 结合XML文件注解：<br />
-> flowable:collection=“parallelList” （**必填**）传入List参数,一般为用户ID集合 <br />
+> flowable:collection=“parallelList”  传入List参数,一般为用户ID集合 <br />
 > flowable:elementVariable=“parallel” List中单个参数的名称 <br />
 > flowable:assignee="${parallel}"     当前任务审批人变量参数 <br />
 
@@ -529,20 +529,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 > 固定数量（一人审批通过：`<completionCondition>${nrOfCompletedInstances == 1}</completionCondition>`） <br />
 > 百分比（50%审批通过：`${nrOfCompletedInstances/nrOfInstances &gt;= 0.5}`） <br />
 
+> 注：多实例并行，一次生成n(由parallelList的数量决定，如果配置的是`<loopCardinality>3</loopCardinality>`，由loopCardinality数量决定)个task，执行顺序不分先后，全部执行完这个节点才算结束
+
 图4：串行（sequential）会签审批（指定候选人）
-![img.png](../img/运维/SpringBoot+Flowable/串行会签节点.png)
+![img.png](../img/开发/SpringBoot+Flowable/会签串行节点.png)
 > 结合XML文件注解：<br />
-> flowable:collection="sequentialList" （**必填**） <br />
+> <loopCardinality>3</loopCardinality> 基数（多实例）/实例个数 <br />
+
+> 注：多实例串行，按照顺序执行，会先生成一个task1，task1执行结束后生成一个task2，task2执行结束后在生成一个task3...
 
 图5：排它网关分支
-![img.png](../img/运维/SpringBoot+Flowable/排它网关分支1.png)
-![img.png](../img/运维/SpringBoot+Flowable/排它网关分支2.png)
+![img.png](../img/开发/SpringBoot+Flowable/排它网关分支1.png)
+![img.png](../img/开发/SpringBoot+Flowable/排它网关分支2.png)
 
 图6：指定审批人（区分与指定候选人）
-![img.png](../img/运维/SpringBoot+Flowable/指定审批人节点.png)
+![img.png](../img/开发/SpringBoot+Flowable/指定审批人节点.png)
 
 ### 1.3 下载流程
-![img.png](../img/运维/SpringBoot+Flowable/下载流程.png)
+![img.png](../img/开发/SpringBoot+Flowable/下载流程.png)
 
 ## 2 SpringBoot集成Flowable
 
@@ -625,7 +629,7 @@ logging:
 
 ### Step3 初始化
 运行，初始化表信息
-![img.png](../img/运维/SpringBoot+Flowable/数据库初始化.png)
+![img.png](../img/开发/SpringBoot+Flowable/数据库初始化.png)
 
 ### Step4 数据库表结构说明
 1、Flowable的所有数据库表都以ACT_开头。第二部分是说明表用途的两字符标示符。服务API的命名也大略符合这个规则。<br />
@@ -665,7 +669,7 @@ act_ru_job：运行时定时任务数据表，存储流程的定时任务信息�
 act_ru_variable：运行时流程变量数据表，存储运行中的流程各节点的变量信息；<br />
 
 ### Step5 <font color=#d85144> Flowable API与服务 </font>
-![](../img/运维/SpringBoot+Flowable/流程引擎API与服务.png)
+![](../img/开发/SpringBoot+Flowable/流程引擎API与服务.png)
 Flowable API是与Flowable交互的最常用手段。总入口点是ProcessEngine。
 > 1、RepositoryService很可能是使用Flowable引擎要用的第一个服务。这个服务提供了管理与控制部署(deployments)与流程定义(process
 definitions)的操作。管理静态信息。<br />
@@ -678,3 +682,4 @@ definitions)的操作。管理静态信息。<br />
 8、DynamicBpmnService可用于修改流程定义中的部分内容，而不需要重新部署它。例如可以修改流程定义中一个用户任务的办理人设置，或者修改一个服务任务中的类名。<br />
 
 ### Step6 Flowable流程流转实现
+参考代码模块friday-preview-flowable下的com.friday.flowable.service.impl.PreviewFlowableServer

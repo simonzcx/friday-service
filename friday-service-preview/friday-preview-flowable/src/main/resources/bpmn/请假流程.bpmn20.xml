@@ -17,7 +17,9 @@
     </userTask>
     <sequenceFlow id="sid-51A06B9C-47F5-4DB8-959A-A00E541D336B" sourceRef="dt_sp" targetRef="hq_sp_parallel"></sequenceFlow>
     <userTask id="cx_hq_sequential" name="串行会签审批" flowable:candidateUsers="串行会签审批人A,串行会签审批人B,串行会签审批人C">
-      <multiInstanceLoopCharacteristics isSequential="true" flowable:collection="sequentialList"></multiInstanceLoopCharacteristics>
+      <multiInstanceLoopCharacteristics isSequential="true">
+        <loopCardinality>3</loopCardinality>
+      </multiInstanceLoopCharacteristics>
     </userTask>
     <sequenceFlow id="sid-AFD6302C-B1CD-41EC-8151-E9E79D190286" sourceRef="hq_sp_parallel" targetRef="cx_hq_sequential"></sequenceFlow>
     <exclusiveGateway id="exclusive_gateway" name="排它网关"></exclusiveGateway>
