@@ -28,7 +28,6 @@ public class PreviewFlowableServer {
     @Resource
     private TaskService taskService;
 
-
     /**
      * Step1：部署流程
      * <p>
@@ -95,7 +94,11 @@ public class PreviewFlowableServer {
     @Test
     public void startProcessInstanceByKey() {
         String processDefinitionKey = "leave_flow";
-        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey);
+        Map<String, Object> map = new HashMap<String, Object>() {{
+            put("person", "simon");
+        }};
+
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey, map);
         System.out.println(processInstance.getId());
         System.out.println(processInstance.getActivityId());
     }
@@ -109,7 +112,7 @@ public class PreviewFlowableServer {
      */
     @Test
     public void findTaskByUserIdNode1() {
-        String userId = "张三";
+        String userId = "李四";
         Task task = taskService.createTaskQuery().taskCandidateOrAssigned(userId).singleResult();
         System.out.println(task);
     }
@@ -302,7 +305,7 @@ public class PreviewFlowableServer {
      */
     @Test
     public void completeTaskNode2() {
-        String taskId = "08402cef-bf8d-11ec-abe8-4ecbd0e4f490";
+        String taskId = "0b124225-bfbe-11ec-a8cc-3ac56886f70a";
 
         //这种写法是匿名内部类的写法，ArrayList 实现了序列化方式，但是这个匿名内部类没有实现序列化
         /*List<String> candidateUsers = new ArrayList<String>() {{
@@ -445,7 +448,7 @@ public class PreviewFlowableServer {
      */
     @Test
     public void completeTaskNode3And1() {
-        String taskId = "317c5e0e-bf91-11ec-9b6a-2615652caa30";
+        String taskId = "a30d76c6-bfbf-11ec-9c68-3ac56886f70a";
         taskService.complete(taskId);
     }
 
@@ -679,7 +682,7 @@ public class PreviewFlowableServer {
      */
     @Test
     public void completeTaskNode3And2() {
-        String taskId = "31833be4-bf91-11ec-9b6a-2615652caa30";
+        String taskId = "a313b85c-bfbf-11ec-9c68-3ac56886f70a";
         taskService.complete(taskId);
     }
 
@@ -688,7 +691,7 @@ public class PreviewFlowableServer {
      */
     @Test
     public void completeTaskNode4And1() {
-        String taskId = "bc8ba4e0-bfa5-11ec-94ce-4a90ec3e8e61";
+        String taskId = "32a605a1-bfc0-11ec-bea3-3ac56886f70a";
         taskService.complete(taskId);
     }
 
@@ -697,7 +700,7 @@ public class PreviewFlowableServer {
      */
     @Test
     public void completeTaskNode4And2() {
-        String taskId = "4a8d3209-bfac-11ec-b0bc-aaf288232d34";
+        String taskId = "0955bdee-bfc1-11ec-8194-3ac56886f70a";
         taskService.complete(taskId);
     }
 
@@ -706,7 +709,8 @@ public class PreviewFlowableServer {
      */
     @Test
     public void completeTaskNode4And3() {
-        String taskId = "8f29205a-bfac-11ec-9f9e-aaf288232d34";
+        String taskId = "4ae5f3ce-bfc1-11ec-9191-3ac56886f70a";
+        taskService.claim(taskId, "Simon");
 
         Map<String, Object> variables = new HashMap<String, Object>(){{
             put("leave_day", 5);
@@ -801,7 +805,7 @@ public class PreviewFlowableServer {
      */
     @Test
     public void completeTaskNode5() {
-        String taskId = "bae797fa-bfad-11ec-ba75-aaf288232d34";
+        String taskId = "86a20b66-bfc2-11ec-b677-369ff8f6d120";
         taskService.complete(taskId);
     }
 

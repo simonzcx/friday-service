@@ -389,117 +389,121 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
-  <process id="leave_flow" name="请假流程" isExecutable="true">
-    <documentation>请假流程</documentation>
-    <startEvent id="startEvent1" name="开始"></startEvent>
-    <userTask id="dt_sp" name="动态审批" flowable:candidateUsers="${assignee}"></userTask>
-    <intermediateThrowEvent id="sid-AC33A9AA-647B-4371-9E1C-8377ECC7D18E" name="结束"></intermediateThrowEvent>
-    <exclusiveGateway id="sid-C9BA96ED-8753-4666-B8C4-E71BC06CBDC9"></exclusiveGateway>
-    <userTask id="zj_sp" name="总监审批" flowable:assignee="李总监">
-      <extensionElements>
-        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
-      </extensionElements>
-    </userTask>
-    <userTask id="zjl_sp" name="总经理审批" flowable:assignee="王经理">
-      <extensionElements>
-        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
-      </extensionElements>
-    </userTask>
-    <sequenceFlow id="sid-7BC662A9-0385-4DCB-9BFA-A606D79FECFE" sourceRef="zj_sp" targetRef="sid-AC33A9AA-647B-4371-9E1C-8377ECC7D18E"></sequenceFlow>
-    <sequenceFlow id="sid-C96F5C70-ABC1-4889-868E-3692CCFB67F9" sourceRef="zjl_sp" targetRef="sid-AC33A9AA-647B-4371-9E1C-8377ECC7D18E"></sequenceFlow>
-    <userTask id="hq_sp_parallel" name="并行会签审批" flowable:assignee="${parallel}">
-      <extensionElements>
-        <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
-      </extensionElements>
-      <multiInstanceLoopCharacteristics isSequential="false" flowable:collection="parallelList" flowable:elementVariable="parallel">
-        <completionCondition>${nrOfCompletedInstances/nrOfInstances &gt;= 0.5}</completionCondition>
-      </multiInstanceLoopCharacteristics>
-    </userTask>
-    <sequenceFlow id="sid-E61BEF9B-BEFC-4944-A6EB-427C4FCE7D37" sourceRef="dt_sp" targetRef="hq_sp_parallel"></sequenceFlow>
-    <userTask id="cx_hq_sequential" name="串行会签审批" flowable:candidateUsers="串行会签A,串行会签B,串行会签C">
-      <multiInstanceLoopCharacteristics isSequential="true" flowable:collection="sequentialList"></multiInstanceLoopCharacteristics>
-    </userTask>
-    <sequenceFlow id="sid-8E2D0147-BE38-4AFC-8E00-F76E9A9691D8" sourceRef="hq_sp_parallel" targetRef="cx_hq_sequential"></sequenceFlow>
-    <sequenceFlow id="sid-D5FB2FF9-2879-4F40-BD45-F00AC198D1D0" sourceRef="cx_hq_sequential" targetRef="sid-C9BA96ED-8753-4666-B8C4-E71BC06CBDC9"></sequenceFlow>
-    <sequenceFlow id="sid-F2F7E97E-4723-46CA-9753-8E64E5F661DC" name="请假天数小于3" sourceRef="sid-C9BA96ED-8753-4666-B8C4-E71BC06CBDC9" targetRef="zj_sp">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${qjts<3}]]></conditionExpression>
-    </sequenceFlow>
-    <sequenceFlow id="sid-0D7F6C3C-D50D-4C10-9D4C-02FDCBB0ACAF" name="请假天数大于3" sourceRef="sid-C9BA96ED-8753-4666-B8C4-E71BC06CBDC9" targetRef="zjl_sp">
-      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${qjts>=3}]]></conditionExpression>
-    </sequenceFlow>
-    <userTask id="zz_sp" name="组长审批" flowable:candidateUsers="张三,李四"></userTask>
-    <sequenceFlow id="sid-8689B1AD-A170-429D-952A-5D4731D8B6CB" sourceRef="startEvent1" targetRef="zz_sp"></sequenceFlow>
-    <sequenceFlow id="sid-28C0ADF5-1D78-4360-8F57-CE278F2216DE" sourceRef="zz_sp" targetRef="dt_sp"></sequenceFlow>
-  </process>
-  <bpmndi:BPMNDiagram id="BPMNDiagram_leave_flow">
-    <bpmndi:BPMNPlane bpmnElement="leave_flow" id="BPMNPlane_leave_flow">
-      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
-        <omgdc:Bounds height="30.0" width="30.0" x="45.0" y="132.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="dt_sp" id="BPMNShape_dt_sp">
-        <omgdc:Bounds height="80.0" width="100.0" x="270.0" y="110.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="sid-AC33A9AA-647B-4371-9E1C-8377ECC7D18E" id="BPMNShape_sid-AC33A9AA-647B-4371-9E1C-8377ECC7D18E">
-        <omgdc:Bounds height="30.0" width="30.0" x="1115.0" y="132.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="sid-C9BA96ED-8753-4666-B8C4-E71BC06CBDC9" id="BPMNShape_sid-C9BA96ED-8753-4666-B8C4-E71BC06CBDC9">
-        <omgdc:Bounds height="40.0" width="40.0" x="755.0" y="127.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="zj_sp" id="BPMNShape_zj_sp">
-        <omgdc:Bounds height="80.0" width="100.0" x="905.0" y="30.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="zjl_sp" id="BPMNShape_zjl_sp">
-        <omgdc:Bounds height="80.0" width="100.0" x="905.0" y="180.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="hq_sp_parallel" id="BPMNShape_hq_sp_parallel">
-        <omgdc:Bounds height="80.0" width="100.0" x="425.0" y="110.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="cx_hq_sequential" id="BPMNShape_cx_hq_sequential">
-        <omgdc:Bounds height="80.0" width="100.0" x="590.0" y="110.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape bpmnElement="zz_sp" id="BPMNShape_zz_sp">
-        <omgdc:Bounds height="80.0" width="100.0" x="120.0" y="105.0"></omgdc:Bounds>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge bpmnElement="sid-7BC662A9-0385-4DCB-9BFA-A606D79FECFE" id="BPMNEdge_sid-7BC662A9-0385-4DCB-9BFA-A606D79FECFE">
-        <omgdi:waypoint x="1004.9499999999999" y="91.97799999999997"></omgdi:waypoint>
-        <omgdi:waypoint x="1116.2573192845716" y="140.95740223453248"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-8E2D0147-BE38-4AFC-8E00-F76E9A9691D8" id="BPMNEdge_sid-8E2D0147-BE38-4AFC-8E00-F76E9A9691D8">
-        <omgdi:waypoint x="524.9499999999836" y="150.0"></omgdi:waypoint>
-        <omgdi:waypoint x="589.9999999999847" y="150.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-E61BEF9B-BEFC-4944-A6EB-427C4FCE7D37" id="BPMNEdge_sid-E61BEF9B-BEFC-4944-A6EB-427C4FCE7D37">
-        <omgdi:waypoint x="369.949999999976" y="150.0"></omgdi:waypoint>
-        <omgdi:waypoint x="424.9999999999684" y="150.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-D5FB2FF9-2879-4F40-BD45-F00AC198D1D0" id="BPMNEdge_sid-D5FB2FF9-2879-4F40-BD45-F00AC198D1D0">
-        <omgdi:waypoint x="689.9499999999994" y="148.88888888888889"></omgdi:waypoint>
-        <omgdi:waypoint x="755.4347826086943" y="147.43369565217392"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-8689B1AD-A170-429D-952A-5D4731D8B6CB" id="BPMNEdge_sid-8689B1AD-A170-429D-952A-5D4731D8B6CB">
-        <omgdi:waypoint x="74.94998702926873" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="97.5" y="147.0"></omgdi:waypoint>
-        <omgdi:waypoint x="97.5" y="145.0"></omgdi:waypoint>
-        <omgdi:waypoint x="119.99999999998602" y="145.0"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-28C0ADF5-1D78-4360-8F57-CE278F2216DE" id="BPMNEdge_sid-28C0ADF5-1D78-4360-8F57-CE278F2216DE">
-        <omgdi:waypoint x="219.94999999999976" y="146.665"></omgdi:waypoint>
-        <omgdi:waypoint x="270.0" y="148.33333333333334"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-C96F5C70-ABC1-4889-868E-3692CCFB67F9" id="BPMNEdge_sid-C96F5C70-ABC1-4889-868E-3692CCFB67F9">
-        <omgdi:waypoint x="1004.9499999999999" y="199.14285714285714"></omgdi:waypoint>
-        <omgdi:waypoint x="1116.1525796758074" y="152.75709796996537"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-F2F7E97E-4723-46CA-9753-8E64E5F661DC" id="BPMNEdge_sid-F2F7E97E-4723-46CA-9753-8E64E5F661DC">
-        <omgdi:waypoint x="788.0167067307692" y="140.04807692307693"></omgdi:waypoint>
-        <omgdi:waypoint x="905.0" y="70.56417624521075"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge bpmnElement="sid-0D7F6C3C-D50D-4C10-9D4C-02FDCBB0ACAF" id="BPMNEdge_sid-0D7F6C3C-D50D-4C10-9D4C-02FDCBB0ACAF">
-        <omgdi:waypoint x="787.6808099458394" y="154.26785714285714"></omgdi:waypoint>
-        <omgdi:waypoint x="905.0" y="219.44444444444446"></omgdi:waypoint>
-      </bpmndi:BPMNEdge>
-    </bpmndi:BPMNPlane>
-  </bpmndi:BPMNDiagram>
+    <process id="leave_flow" name="请假流程" isExecutable="true">
+        <documentation>请假流程</documentation>
+        <startEvent id="startEvent1" name="开始"></startEvent>
+        <userTask id="zz_sq" name="组长审批" flowable:candidateUsers="张三,李四"></userTask>
+        <sequenceFlow id="sid-9F2FD79A-636C-40BE-A329-49D9F4D561C3" sourceRef="startEvent1" targetRef="zz_sq"></sequenceFlow>
+        <userTask id="dt_sp" name="动态审批" flowable:candidateUsers="${assignee}"></userTask>
+        <sequenceFlow id="sid-F6E212BE-5AC3-4B6C-BA4A-3DA3D205C11A" sourceRef="zz_sq" targetRef="dt_sp"></sequenceFlow>
+        <userTask id="hq_sp_parallel" name="并行会签审批" flowable:assignee="${parallel}">
+            <extensionElements>
+                <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+            </extensionElements>
+            <multiInstanceLoopCharacteristics isSequential="false" flowable:collection="parallelList" flowable:elementVariable="parallel">
+                <completionCondition>${nrOfCompletedInstances/nrOfInstances &gt;= 0.5}</completionCondition>
+            </multiInstanceLoopCharacteristics>
+        </userTask>
+        <sequenceFlow id="sid-51A06B9C-47F5-4DB8-959A-A00E541D336B" sourceRef="dt_sp" targetRef="hq_sp_parallel"></sequenceFlow>
+        <userTask id="cx_hq_sequential" name="串行会签审批" flowable:candidateUsers="串行会签审批人A,串行会签审批人B,串行会签审批人C">
+            <multiInstanceLoopCharacteristics isSequential="true">
+                <loopCardinality>3</loopCardinality>
+            </multiInstanceLoopCharacteristics>
+        </userTask>
+        <sequenceFlow id="sid-AFD6302C-B1CD-41EC-8151-E9E79D190286" sourceRef="hq_sp_parallel" targetRef="cx_hq_sequential"></sequenceFlow>
+        <exclusiveGateway id="exclusive_gateway" name="排它网关"></exclusiveGateway>
+        <sequenceFlow id="sid-B70BBC93-F85B-4BE7-820B-4ECC274D16AF" sourceRef="cx_hq_sequential" targetRef="exclusive_gateway"></sequenceFlow>
+        <userTask id="zj_sp" name="总监审批" flowable:assignee="李总监">
+            <extensionElements>
+                <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+            </extensionElements>
+        </userTask>
+        <userTask id="zjl_sp" name="总经理审批" flowable:assignee="王经理">
+            <extensionElements>
+                <modeler:initiator-can-complete xmlns:modeler="http://flowable.org/modeler"><![CDATA[false]]></modeler:initiator-can-complete>
+            </extensionElements>
+        </userTask>
+        <endEvent id="sid-5D7C6F7B-38B2-4163-8BD7-EE4297ECA3C2" name="结束"></endEvent>
+        <sequenceFlow id="sid-D3BE5784-5299-4C7E-8DE2-37592BC6BBC3" sourceRef="zj_sp" targetRef="sid-5D7C6F7B-38B2-4163-8BD7-EE4297ECA3C2"></sequenceFlow>
+        <sequenceFlow id="sid-3D64DAEA-90AF-4AFC-946E-9DBE7C6AC63A" sourceRef="zjl_sp" targetRef="sid-5D7C6F7B-38B2-4163-8BD7-EE4297ECA3C2"></sequenceFlow>
+        <sequenceFlow id="sid-9779EFC4-01C5-4976-B32F-3924C8237023" name="小于3天" sourceRef="exclusive_gateway" targetRef="zj_sp">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave_day<3}]]></conditionExpression>
+        </sequenceFlow>
+        <sequenceFlow id="sid-588808F8-521C-4D02-B5FE-0ED80920D766" name="大于3天" sourceRef="exclusive_gateway" targetRef="zjl_sp">
+            <conditionExpression xsi:type="tFormalExpression"><![CDATA[${leave_day>=3}]]></conditionExpression>
+        </sequenceFlow>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_leave_flow">
+        <bpmndi:BPMNPlane bpmnElement="leave_flow" id="BPMNPlane_leave_flow">
+            <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+                <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="zz_sq" id="BPMNShape_zz_sq">
+                <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="dt_sp" id="BPMNShape_dt_sp">
+                <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="hq_sp_parallel" id="BPMNShape_hq_sp_parallel">
+                <omgdc:Bounds height="80.0" width="100.0" x="465.0" y="138.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="cx_hq_sequential" id="BPMNShape_cx_hq_sequential">
+                <omgdc:Bounds height="80.0" width="100.0" x="610.0" y="138.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="exclusive_gateway" id="BPMNShape_exclusive_gateway">
+                <omgdc:Bounds height="40.0" width="40.0" x="748.5" y="158.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="zj_sp" id="BPMNShape_zj_sp">
+                <omgdc:Bounds height="80.0" width="100.0" x="840.0" y="75.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="zjl_sp" id="BPMNShape_zjl_sp">
+                <omgdc:Bounds height="80.0" width="100.0" x="840.0" y="195.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="sid-5D7C6F7B-38B2-4163-8BD7-EE4297ECA3C2" id="BPMNShape_sid-5D7C6F7B-38B2-4163-8BD7-EE4297ECA3C2">
+                <omgdc:Bounds height="28.0" width="28.0" x="990.0" y="164.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="sid-9779EFC4-01C5-4976-B32F-3924C8237023" id="BPMNEdge_sid-9779EFC4-01C5-4976-B32F-3924C8237023">
+                <omgdi:waypoint x="769.0" y="158.5"></omgdi:waypoint>
+                <omgdi:waypoint x="769.0" y="115.0"></omgdi:waypoint>
+                <omgdi:waypoint x="840.0" y="115.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-AFD6302C-B1CD-41EC-8151-E9E79D190286" id="BPMNEdge_sid-AFD6302C-B1CD-41EC-8151-E9E79D190286">
+                <omgdi:waypoint x="564.9499999999907" y="178.0"></omgdi:waypoint>
+                <omgdi:waypoint x="609.9999999999807" y="178.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-3D64DAEA-90AF-4AFC-946E-9DBE7C6AC63A" id="BPMNEdge_sid-3D64DAEA-90AF-4AFC-946E-9DBE7C6AC63A">
+                <omgdi:waypoint x="939.949999999996" y="235.0"></omgdi:waypoint>
+                <omgdi:waypoint x="1004.0" y="235.0"></omgdi:waypoint>
+                <omgdi:waypoint x="1004.0" y="191.94994988521194"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-B70BBC93-F85B-4BE7-820B-4ECC274D16AF" id="BPMNEdge_sid-B70BBC93-F85B-4BE7-820B-4ECC274D16AF">
+                <omgdi:waypoint x="709.949999999998" y="178.22912844036696"></omgdi:waypoint>
+                <omgdi:waypoint x="748.9078341013825" y="178.4078341013825"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-F6E212BE-5AC3-4B6C-BA4A-3DA3D205C11A" id="BPMNEdge_sid-F6E212BE-5AC3-4B6C-BA4A-3DA3D205C11A">
+                <omgdi:waypoint x="274.9499999999907" y="178.0"></omgdi:waypoint>
+                <omgdi:waypoint x="319.9999999999807" y="178.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-51A06B9C-47F5-4DB8-959A-A00E541D336B" id="BPMNEdge_sid-51A06B9C-47F5-4DB8-959A-A00E541D336B">
+                <omgdi:waypoint x="419.94999999999067" y="178.0"></omgdi:waypoint>
+                <omgdi:waypoint x="464.9999999999807" y="178.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-9F2FD79A-636C-40BE-A329-49D9F4D561C3" id="BPMNEdge_sid-9F2FD79A-636C-40BE-A329-49D9F4D561C3">
+                <omgdi:waypoint x="129.9499984899576" y="178.0"></omgdi:waypoint>
+                <omgdi:waypoint x="174.9999999999917" y="178.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-D3BE5784-5299-4C7E-8DE2-37592BC6BBC3" id="BPMNEdge_sid-D3BE5784-5299-4C7E-8DE2-37592BC6BBC3">
+                <omgdi:waypoint x="939.9499999999778" y="115.0"></omgdi:waypoint>
+                <omgdi:waypoint x="1004.0" y="115.0"></omgdi:waypoint>
+                <omgdi:waypoint x="1004.0" y="164.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-588808F8-521C-4D02-B5FE-0ED80920D766" id="BPMNEdge_sid-588808F8-521C-4D02-B5FE-0ED80920D766">
+                <omgdi:waypoint x="769.0" y="197.43325971731454"></omgdi:waypoint>
+                <omgdi:waypoint x="769.0" y="235.0"></omgdi:waypoint>
+                <omgdi:waypoint x="839.9999999999882" y="235.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
 </definitions>
 ```
 图1：指定候选人
