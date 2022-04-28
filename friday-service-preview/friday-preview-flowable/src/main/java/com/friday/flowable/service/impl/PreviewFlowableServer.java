@@ -13,7 +13,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -96,6 +101,7 @@ public class PreviewFlowableServer {
         String processDefinitionKey = "leave_flow";
         Map<String, Object> map = new HashMap<String, Object>() {{
             put("person", "simon");
+            put("biz_aaa", "aaa");
         }};
 
         ProcessInstance processInstance = runtimeService.startProcessInstanceByKey(processDefinitionKey, map);
@@ -807,6 +813,17 @@ public class PreviewFlowableServer {
     public void completeTaskNode5() {
         String taskId = "86a20b66-bfc2-11ec-b677-369ff8f6d120";
         taskService.complete(taskId);
+    }
+
+    public static void main(String[] args) {
+        String str = "/aaa/b-b44";
+        String pattern = "^(\\/[a-zA-Z0-9$.+!*'(){},~:;=@#%_\\-]*)+$";
+
+        Pattern r = Pattern.compile(pattern);
+        Matcher m = r.matcher(str);
+        System.out.println(m.matches());
+
+
     }
 
 }
