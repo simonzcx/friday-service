@@ -7,6 +7,7 @@
         <module>friday-preview-note</module>
         <module>friday-preview-flowable</module>
         <module>friday-preview-flowable-modeler</module>
+        <module>friday-preview-rocketmq</module>
     </modules>
 
     <parent>

@@ -1,9 +1,10 @@
-# 背景
+# WIN11 WSL2 Ubuntu22.04子系统配置固定IP
+## 背景
 WSL2 是由 windows 的 Hyper-V 虚拟平台创建，每次重启 windows 之后 Hyper-V 会重新启动，自然 WSL2 之前设置好的固定ip也会被重置，我们要连接子系统内部的应用频繁换 IP 会很麻烦，可以给 Ubuntu 子系统中添加一个新的网卡来给宿主机连接用。
 
-# 配置固定IP（方法一）
+## 配置固定IP（方法一）
 
-## Step1：查看要配置的子系统
+### Step1：查看要配置的子系统
 使用命令`wsl -l`看下子系统分发版列表，要配置的是哪个？
 
 ```bash
@@ -12,7 +13,7 @@ PS C:\Users\Gientech> wsl -l
 Ubuntu-22.04 (默认)
 ```
 
-## Step2：批处理命令
+### Step2：批处理命令
 新建wsl-start.bat文件，添加命令并保存
 ```bash
 :: 在Win11中添加IP地址 172.168.0.2
@@ -25,13 +26,13 @@ wsl -d Ubuntu-22.04 -u root ip addr add 172.168.0.3/24 broadcast 171.168.0.255 d
 :: New-NetFirewallRule -DisplayName "WSL" -Direction Inbound  -InterfaceAlias "vEthernet (WSL)"  -Action Allow
 ```
 
-## Step3：桌面快捷方式
+### Step3：桌面快捷方式
 对Step2中的wsl-start.bat新建桌面快捷方式，并设置管理员运行
 ![img.png](../img/运维/WIN11+WSL2+Ubuntu22.04/1-创建快捷方式.png)
 ![img_1.png](../img/运维/WIN11+WSL2+Ubuntu22.04/2-管理员运行.png)
 
 
-## Step4：测试
+### Step4：测试
 
 **① 配置前IP信息** <br />
 ![img.png](../img/运维/WIN11+WSL2+Ubuntu22.04/3-配置前IP信息.png)
