@@ -22,8 +22,8 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 - zsh-syntax-highlighting 命令高亮
 ```
 cd ~/.oh-my-zsh/custom/plugins/
-git clone git@github.com:zsh-users/zsh-autosuggestions.git
-git clone git@github.com:zsh-users/zsh-syntax-highlighting.git
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 ```
 修改 ~/.zshrc 文件，在插件列表中填入插件名称，如下所示：
 `vim ~/.zshrc`
@@ -50,4 +50,15 @@ brew install rectangle
 ### 6 SSH免密
 ```
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.1.111
+```
+
+### 7 SSH config
+```
+# github ssh -T git@github.com
+Host github.com
+HostName github.com
+#Port 22
+#Username 
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/github_id_rsa
 ```
