@@ -8,6 +8,7 @@
         <module>friday-preview-flowable</module>
         <module>friday-preview-flowable-modeler</module>
         <module>friday-preview-rocketmq</module>
+        <module>friday-preview-apollo</module>
     </modules>
 
     <parent>

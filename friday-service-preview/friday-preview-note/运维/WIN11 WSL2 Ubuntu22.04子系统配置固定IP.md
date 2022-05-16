@@ -45,3 +45,15 @@ wsl -d Ubuntu-22.04 -u root ip addr add 172.168.0.3/24 broadcast 171.168.0.255 d
 **④ 配置后IP信息** <br />
 ![img.png](../img/运维/WIN11+WSL2+Ubuntu22.04/5-配置后IP信息.png)
 ![img_1.png](../img/运维/WIN11+WSL2+Ubuntu22.04/6-配置后IP信息PING.png)
+
+
+### Ubuntu配置
+为了避免每次sudo都要输入密码，这里配置一下visudo：
+```
+sudo visudo
+```
+
+在文件末尾加上一句(改为自己的用户名)，修改后 Ctrl + S 保存，Ctrl + X 退出。
+```
+username ALL=(ALL) NOPASSWD: ALL
+```
