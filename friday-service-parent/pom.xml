@@ -152,11 +152,11 @@
     <distributionManagement>
         <repository>
             <id>friday-releases</id>   <!-- id必须和settings.xml文件server标签中的id一致 -->
-            <url>http://168.0.0.2:8081/repository/maven-releases/</url>
+            <url>http://192.168.3.3:8081/repository/maven-releases/</url>
         </repository>
         <snapshotRepository>
             <id>friday-snapshots</id>  <!-- id必须和settings.xml文件server标签中的id一致 -->
-            <url>http://168.0.0.2:8081/repository/maven-snapshots/</url>
+            <url>http://192.168.3.3:8081/repository/maven-snapshots/</url>
         </snapshotRepository>
     </distributionManagement>
 
@@ -166,12 +166,12 @@
         <repository>
             <id>friday-maven</id>
             <name>friday maven</name>
-            <url>http://168.0.0.2:8081/repository/maven-public/</url>
+            <url>http://192.168.3.3:8081/repository/maven-public/</url>
         </repository>
         <repository>
             <id>friday-snapshots</id>
             <name>friday snapshots</name>
-            <url>http://168.0.0.2:8081/repository/maven-snapshots/</url>
+            <url>http://192.168.3.3:8081/repository/maven-snapshots/</url>
             <snapshots>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
