@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  cloud:
+    gateway:
+      httpclient:
+        ssl:
+          useInsecureTrustManager: true # 信任所有证书
+      routes:
+        - id: chat-gpt
+          uri: https://api.openai.com
+          predicates:
+            - Path=/gpt/**
+          filters:
+            - RewritePath=/gpt/(?<segment>.*), /$\{segment}

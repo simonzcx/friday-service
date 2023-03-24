@@ -1,0 +1,2198 @@
+{
+    "components": {
+        "schemas": {
+            "data1751797217": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "nullable": true,
+                        "description": "经销商地址",
+                        "type": "string"
+                    },
+                    "code": {
+                        "nullable": true,
+                        "description": "经销商编码",
+                        "type": "string"
+                    },
+                    "distance": {
+                        "nullable": true,
+                        "description": "经销商距离当前检索经纬度的距离，单位km",
+                        "type": "number"
+                    },
+                    "latitude": {
+                        "nullable": true,
+                        "description": "经销商位置纬度，两位小数点",
+                        "type": "number"
+                    },
+                    "icon": {
+                        "nullable": true,
+                        "description": "经销商LOGO路径",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "经销商名称",
+                        "type": "string"
+                    },
+                    "telephone": {
+                        "nullable": true,
+                        "description": "经销商联系方式",
+                        "type": "string"
+                    },
+                    "longitude": {
+                        "nullable": true,
+                        "description": "经销商位置经度，两位小数点",
+                        "type": "number"
+                    }
+                }
+            },
+            "times798361176": {
+                "type": "object",
+                "properties": {
+                    "time": {
+                        "nullable": true,
+                        "description": "预约时间",
+                        "type": "string",
+                        "example": "10:00"
+                    },
+                    "status": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "状态（1-可预约/空闲， 2-不可预约/繁忙）",
+                        "type": "integer"
+                    }
+                }
+            },
+            "appointments1553831018": {
+                "type": "object",
+                "properties": {
+                    "date": {
+                        "nullable": true,
+                        "description": "预约日期",
+                        "type": "string",
+                        "example": "2022-07-18"
+                    },
+                    "times": {
+                        "nullable": true,
+                        "description": "预约时间列表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/times798361176"
+                    },
+                    "weekday": {
+                        "nullable": true,
+                        "description": "星期几（Mon-星期一，Tues-星期二，Wed-星期三，Thur-星期四，Fri-星期五，Sat-星期六，Sun-星期天）",
+                        "type": "string",
+                        "example": "Mon"
+                    }
+                }
+            },
+            "maintenances1108960363": {
+                "type": "object",
+                "properties": {
+                    "item": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    },
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "status": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "状态（1-可预约， 2-不可预约）",
+                        "type": "integer"
+                    }
+                }
+            },
+            "repairs136068351": {
+                "type": "object",
+                "properties": {
+                    "item": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    },
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "status": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "状态（1-可预约， 2-不可预约）",
+                        "type": "integer"
+                    }
+                }
+            },
+            "data2084878898": {
+                "type": "object",
+                "properties": {
+                    "repairs": {
+                        "nullable": true,
+                        "description": "维修项目列表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/repairs136068351"
+                    },
+                    "appointments": {
+                        "nullable": true,
+                        "description": "预约时间表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/appointments1553831018"
+                    },
+                    "maintenances": {
+                        "nullable": true,
+                        "description": "保养项目列表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/maintenances1108960363"
+                    }
+                }
+            },
+            "maintenances514734568": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "repairs534589132": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "maintenances732030184": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "repairs1855080976": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "data972193341": {
+                "type": "object",
+                "properties": {
+                    "dealerName": {
+                        "nullable": true,
+                        "description": "经销商名称",
+                        "type": "string"
+                    },
+                    "dealerCode": {
+                        "nullable": true,
+                        "description": "经销商编码",
+                        "type": "string"
+                    },
+                    "bizCode": {
+                        "nullable": true,
+                        "description": "业务编码",
+                        "type": "string"
+                    },
+                    "contactName": {
+                        "nullable": true,
+                        "description": "预约联系人",
+                        "type": "string"
+                    },
+                    "dealerPhone": {
+                        "nullable": true,
+                        "description": "经销商联系方式",
+                        "type": "string"
+                    },
+                    "plateNum": {
+                        "nullable": true,
+                        "description": "车牌号",
+                        "type": "string"
+                    },
+                    "bizUserId": {
+                        "nullable": true,
+                        "description": "业务用户编码",
+                        "type": "string"
+                    },
+                    "maintenances": {
+                        "nullable": true,
+                        "description": "保养项目列表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/maintenances732030184"
+                    },
+                    "repairFlag": {
+                        "nullable": true,
+                        "description": "是否选择维修 0-否 1-是",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "number": {
+                        "nullable": true,
+                        "description": "预约单号",
+                        "type": "string"
+                    },
+                    "repairs": {
+                        "nullable": true,
+                        "description": "维修项目列表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/repairs1855080976"
+                    },
+                    "maintenanceFlag": {
+                        "nullable": true,
+                        "description": "是否选择保养 0-否 1-是",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "arrivalTime": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "到店时间",
+                        "type": "integer"
+                    },
+                    "reserveTime": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "预约创建时间",
+                        "type": "integer"
+                    },
+                    "contactPhone": {
+                        "nullable": true,
+                        "description": "预约联系电话",
+                        "type": "string"
+                    },
+                    "reserveStatus": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "预约状态",
+                        "type": "integer"
+                    }
+                }
+            },
+            "maintenances2008749569": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "repairs993943117": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "list1328906718": {
+                "type": "object",
+                "properties": {
+                    "dealerName": {
+                        "nullable": true,
+                        "description": "经销商名称",
+                        "type": "string"
+                    },
+                    "dealerCode": {
+                        "nullable": true,
+                        "description": "经销商编码",
+                        "type": "string"
+                    },
+                    "bizCode": {
+                        "nullable": true,
+                        "description": "业务编码",
+                        "type": "string"
+                    },
+                    "contactName": {
+                        "nullable": true,
+                        "description": "预约联系人",
+                        "type": "string"
+                    },
+                    "dealerPhone": {
+                        "nullable": true,
+                        "description": "经销商联系方式",
+                        "type": "string"
+                    },
+                    "plateNum": {
+                        "nullable": true,
+                        "description": "车牌号",
+                        "type": "string"
+                    },
+                    "bizUserId": {
+                        "nullable": true,
+                        "description": "业务用户编码",
+                        "type": "string"
+                    },
+                    "maintenances": {
+                        "nullable": true,
+                        "description": "保养项目列表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/maintenances2008749569"
+                    },
+                    "repairFlag": {
+                        "nullable": true,
+                        "description": "是否选择维修 0-否 1-是",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "number": {
+                        "nullable": true,
+                        "description": "预约单号",
+                        "type": "string"
+                    },
+                    "repairs": {
+                        "nullable": true,
+                        "description": "维修项目列表",
+                        "type": "object",
+                        "$ref": "#/components/schemas/repairs993943117"
+                    },
+                    "maintenanceFlag": {
+                        "nullable": true,
+                        "description": "是否选择保养 0-否 1-是",
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "arrivalTime": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "到店时间",
+                        "type": "integer"
+                    },
+                    "reserveTime": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "预约创建时间",
+                        "type": "integer"
+                    },
+                    "contactPhone": {
+                        "nullable": true,
+                        "description": "预约联系电话",
+                        "type": "string"
+                    },
+                    "reserveStatus": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "预约状态",
+                        "type": "integer"
+                    }
+                }
+            },
+            "query819468352": {
+                "type": "object",
+                "properties": {
+                    "offset": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "pageIndex": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "totalPage": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "limit": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "pageSize": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "totalCount": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "data219324864": {
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "nullable": true,
+                        "description": "",
+                        "type": "object",
+                        "$ref": "#/components/schemas/query819468352"
+                    },
+                    "list": {
+                        "nullable": true,
+                        "description": "",
+                        "type": "object",
+                        "$ref": "#/components/schemas/list1328906718"
+                    }
+                }
+            },
+            "maintenances180207475": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "repairs680976596": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "nullable": true,
+                        "description": "项目编码",
+                        "type": "string"
+                    },
+                    "name": {
+                        "nullable": true,
+                        "description": "项目名称",
+                        "type": "string"
+                    }
+                }
+            },
+            "data809545271": {
+                "type": "object",
+                "properties": {
+                    "lastMileage": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "剩余里程 正数表示剩余里程 负数表示逾期里程 单位：公里",
+                        "type": "integer"
+                    },
+                    "plateNum": {
+                        "nullable": true,
+                        "description": "车牌号",
+                        "type": "string"
+                    },
+                    "lastDate": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "剩余时间 正数表示剩余天数 负数表示逾期天数 单位：天",
+                        "type": "integer"
+                    }
+                }
+            }
+        }
+    },
+    "servers": [
+        {
+            "variables": {
+                "baseUrl": {
+                }
+            },
+            "description": "Inferred Url",
+            "url": "1rPY9VW55Vp"
+        }
+    ],
+    "openapi": "3.0.1",
+    "paths": {
+        "/{version}/dealer/mobile/dealer-info/get-dealers-by-location": {
+            "post": {
+                "summary": "【VWASP-DEALER-1001】移动端根据地理位置获取经销商列表",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "latitude": {
+                                        "nullable": true,
+                                        "description": "纬度，两位小数点",
+                                        "type": "number"
+                                    },
+                                    "scope": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "搜索范围，单位km",
+                                        "type": "integer",
+                                        "example": 5
+                                    },
+                                    "limit": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "返回结果中的最大条目数量，默认为20",
+                                        "type": "integer"
+                                    },
+                                    "keyword": {
+                                        "nullable": true,
+                                        "description": "搜索关键字",
+                                        "type": "string"
+                                    },
+                                    "longitude": {
+                                        "nullable": true,
+                                        "description": "经度，两位小数点",
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/data1751797217"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "经销商模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/dealer-info/get-maintenance-detail": {
+            "post": {
+                "summary": "【VWASP-DEALER-1002】移动端获取指定经销商的维保详细信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "code": {
+                                        "nullable": true,
+                                        "description": "经销商编码",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "经销商维护详情实体类",
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/data2084878898"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "经销商模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/reserve-info/add": {
+            "post": {
+                "summary": "【VWASP-DEALER-1011】移动端创建预约信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "dealerName": {
+                                        "nullable": true,
+                                        "description": "经销商名称",
+                                        "type": "string"
+                                    },
+                                    "dealerCode": {
+                                        "nullable": true,
+                                        "description": "经销商编码",
+                                        "type": "string"
+                                    },
+                                    "bizCode": {
+                                        "nullable": true,
+                                        "description": "业务编码",
+                                        "type": "string"
+                                    },
+                                    "contactName": {
+                                        "nullable": true,
+                                        "description": "预约联系人",
+                                        "type": "string"
+                                    },
+                                    "dealerPhone": {
+                                        "nullable": true,
+                                        "description": "经销商联系方式",
+                                        "type": "string"
+                                    },
+                                    "plateNum": {
+                                        "nullable": true,
+                                        "description": "车牌号",
+                                        "type": "string"
+                                    },
+                                    "bizUserId": {
+                                        "nullable": true,
+                                        "description": "业务用户编码",
+                                        "type": "string"
+                                    },
+                                    "maintenances": {
+                                        "nullable": true,
+                                        "description": "保养项目列表",
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/maintenances514734568"
+                                    },
+                                    "repairFlag": {
+                                        "nullable": true,
+                                        "description": "是否选择维修",
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "repairs": {
+                                        "nullable": true,
+                                        "description": "维修项目列表",
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/repairs534589132"
+                                    },
+                                    "maintenanceFlag": {
+                                        "nullable": true,
+                                        "description": "是否选择保养",
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "arrivalTime": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "到店时间",
+                                        "type": "integer"
+                                    },
+                                    "contactPhone": {
+                                        "nullable": true,
+                                        "description": "预约联系电话",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "boolean"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "预约信息模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/reserve-info/cancel": {
+            "post": {
+                "summary": "【VWASP-DEALER-1013】移动端取消预约信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "nullable": true,
+                                        "description": "预约单号，单号为空返回最新预约信息",
+                                        "type": "string"
+                                    },
+                                    "bizCode": {
+                                        "nullable": true,
+                                        "description": "业务编码",
+                                        "type": "string"
+                                    },
+                                    "bizUserId": {
+                                        "nullable": true,
+                                        "description": "业务用户编码",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "boolean"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "预约信息模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/reserve-info/get": {
+            "post": {
+                "summary": "【VWASP-DEALER-1012】移动端获取预约信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "number": {
+                                        "nullable": true,
+                                        "description": "预约单号，单号为空返回最新预约信息",
+                                        "type": "string"
+                                    },
+                                    "bizCode": {
+                                        "nullable": true,
+                                        "description": "业务编码",
+                                        "type": "string"
+                                    },
+                                    "bizUserId": {
+                                        "nullable": true,
+                                        "description": "业务用户编码",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "预约信息实体类",
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/data972193341"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "预约信息模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/reserve-info/list": {
+            "post": {
+                "summary": "【VWASP-DEALER-1015】移动端获取预约历史",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "pageIndex": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "当前页, 默认1",
+                                        "type": "integer"
+                                    },
+                                    "bizCode": {
+                                        "nullable": true,
+                                        "description": "业务编码",
+                                        "type": "string"
+                                    },
+                                    "pageSize": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "页大小，默认10",
+                                        "type": "integer"
+                                    },
+                                    "bizUserId": {
+                                        "nullable": true,
+                                        "description": "业务用户编码",
+                                        "type": "string"
+                                    },
+                                    "status": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "预约状态，不传代表所有 1-已预约 2-已完成 3-已取消",
+                                        "type": "integer"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/data219324864"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "预约信息模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/reserve-info/modify": {
+            "post": {
+                "summary": "【VWASP-DEALER-1014】移动端修改预约信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "dealerName": {
+                                        "nullable": true,
+                                        "description": "经销商名称",
+                                        "type": "string"
+                                    },
+                                    "dealerCode": {
+                                        "nullable": true,
+                                        "description": "经销商编码",
+                                        "type": "string"
+                                    },
+                                    "bizCode": {
+                                        "nullable": true,
+                                        "description": "业务编码",
+                                        "type": "string"
+                                    },
+                                    "contactName": {
+                                        "nullable": true,
+                                        "description": "预约联系人",
+                                        "type": "string"
+                                    },
+                                    "dealerPhone": {
+                                        "nullable": true,
+                                        "description": "经销商联系方式",
+                                        "type": "string"
+                                    },
+                                    "plateNum": {
+                                        "nullable": true,
+                                        "description": "车牌号",
+                                        "type": "string"
+                                    },
+                                    "bizUserId": {
+                                        "nullable": true,
+                                        "description": "业务用户编码",
+                                        "type": "string"
+                                    },
+                                    "maintenances": {
+                                        "nullable": true,
+                                        "description": "保养项目列表",
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/maintenances180207475"
+                                    },
+                                    "repairFlag": {
+                                        "nullable": true,
+                                        "description": "是否选择维修",
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "number": {
+                                        "nullable": true,
+                                        "description": "预约单号",
+                                        "type": "string"
+                                    },
+                                    "repairs": {
+                                        "nullable": true,
+                                        "description": "维修项目列表",
+                                        "type": "object",
+                                        "$ref": "#/components/schemas/repairs680976596"
+                                    },
+                                    "maintenanceFlag": {
+                                        "nullable": true,
+                                        "description": "是否选择保养",
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "arrivalTime": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "到店时间",
+                                        "type": "integer"
+                                    },
+                                    "contactPhone": {
+                                        "nullable": true,
+                                        "description": "预约联系电话",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "boolean"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "预约信息模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/vehicle-info/get": {
+            "post": {
+                "summary": "【VWASP-DEALER-1031】移动端获取车辆维保信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "bizCode": {
+                                        "nullable": true,
+                                        "description": "业务编码",
+                                        "type": "string"
+                                    },
+                                    "bizUserId": {
+                                        "nullable": true,
+                                        "description": "业务用户编码",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "车辆信息实体类",
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/data809545271"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "车辆信息模块接口"
+                ]
+            }
+        },
+        "/{version}/dealer/mobile/vehicle-info/update": {
+            "post": {
+                "summary": "【VWASP-DEALER-1032】移动端修改车辆信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "bizCode": {
+                                        "nullable": true,
+                                        "description": "业务编码",
+                                        "type": "string"
+                                    },
+                                    "plateNum": {
+                                        "nullable": true,
+                                        "description": "车牌号",
+                                        "type": "string"
+                                    },
+                                    "bizUserId": {
+                                        "nullable": true,
+                                        "description": "业务用户编码",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "boolean"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "语言：zh_CN,en_US;默认为中文",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Accept-Language",
+                        "description": "语言：zh_CN,en_US;默认为中文",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户Token :“Bearer” + 英文空格 + access token",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "用户Token :“Bearer” + 英文空格 + access token",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "application/json;charset=utf-8",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Content-Type",
+                        "description": "application/json;charset=utf-8",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "Unix time stamp",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "Timestamp",
+                        "description": "Unix time stamp",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "全链路Id",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "TraceId",
+                        "description": "全链路Id",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": true,
+                            "description": "用户角色",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "role",
+                        "description": "用户角色",
+                        "required": false
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "用户ID",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "userId",
+                        "description": "用户ID",
+                        "required": true
+                    },
+                    {
+                        "schema": {
+                            "nullable": false,
+                            "description": "车辆vin",
+                            "type": "string"
+                        },
+                        "in": "header",
+                        "name": "vin",
+                        "description": "车辆vin",
+                        "required": true
+                    }
+                ],
+                "tags": [
+                    "车辆信息模块接口"
+                ]
+            }
+        }
+    },
+    "info": {
+        "contact": {
+            "name": "零Zero°F"
+        },
+        "description": "vwasp-dealer-service-core",
+        "termsOfService": "http://www.xiaoyaoji.cn",
+        "title": "vwasp-dealer-service-core",
+        "version": "2022-08-24"
+    },
+    "tags": [
+        {
+            "name": "经销商模块接口"
+        },
+        {
+            "name": "预约信息模块接口"
+        },
+        {
+            "name": "车辆信息模块接口"
+        }
+    ]
+}

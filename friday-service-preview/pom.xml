@@ -3,13 +3,6 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <modules>
-        <module>friday-preview-note</module>
-        <module>friday-preview-flowable</module>
-        <module>friday-preview-flowable-modeler</module>
-        <module>friday-preview-rocketmq</module>
-        <module>friday-preview-apollo</module>
-    </modules>
 
     <parent>
         <groupId>com.friday</groupId>
@@ -20,5 +13,24 @@
     <artifactId>friday-service-preview</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>friday-preview-apollo</module>
+        <module>friday-preview-dealer</module>
+        <module>friday-preview-note</module>
+        <module>friday-preview-flowable</module>
+        <module>friday-preview-flowable-modeler</module>
+        <module>friday-preview-rocketmq</module>
+        <module>friday-preview-converter</module>
+        <module>friday-preview-jwt</module>
+        <module>friday-service-sheep</module>
+        <module>friday-preview-music</module>
+        <module>friday-service-fiction</module>
+        <module>friday-preview-javassist</module>
+        <module>friday-preview-chatgpt</module>
+        <module>friday-preview-chat</module>
+        <module>friday-preview-proxy</module>
+        <!--<module>friday-preview-api-tool</module>-->
+    </modules>
 
 </project>

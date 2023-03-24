@@ -44,6 +44,16 @@ public interface StringConstants {
     String CHAR_CLOSE_BRACKET = "]";
 
     /**
+     * 中文中括号-开
+     */
+    String CHAR_OPEN_CHINESE_BRACKET = "【";
+
+    /**
+     * 中括号-闭
+     */
+    String CHAR_CLOSE_CHINESE_BRACKET = "】";
+
+    /**
      * 字符串 点
      */
     String CHAR_DOT = ".";

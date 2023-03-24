@@ -31,11 +31,18 @@
         <mysql.version>5.1.49</mysql.version>
         <mybatis.version>2.2.0</mybatis.version>
         <mybatis-plus.version>3.4.3.1</mybatis-plus.version>
+        <redisson-spring-boot-starter.version>3.17.0</redisson-spring-boot-starter.version>
+        <spring-boot-starter-data-redis.version>2.6.5</spring-boot-starter-data-redis.version>
+        <rocketmq-spring-boot-starter.version>2.2.2</rocketmq-spring-boot-starter.version>
 
         <!-- 工具包相关 -->
         <freemarker.version>2.3.28</freemarker.version>
         <apache-commons.version>3.12.0</apache-commons.version>
         <fastjson.version>1.2.78</fastjson.version>
+        <easyexcel.version>3.0.5</easyexcel.version>
+        <hutool.version>5.7.13</hutool.version>
+        <gson.version>2.8.8</gson.version>
+        <knife4j.version>3.0.3</knife4j.version>
 
         <!-- friday-service -->
         <friday-service-util.version>1.0.0-SNAPSHOT</friday-service-util.version>
@@ -86,6 +93,18 @@
                 <version>${mybatis-plus.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${spring-boot-starter-data-redis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson-spring-boot-starter.version}</version>
+            </dependency>
+
             <!-- 工具包相关 -->
             <dependency>
                 <groupId>org.freemarker</groupId>
@@ -103,6 +122,31 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>${gson.version}</version>
+            </dependency>
+
+            <!-- knife4j文档 - swagger -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>${knife4j.version}</version>
             </dependency>
 
             <!-- friday-service -->

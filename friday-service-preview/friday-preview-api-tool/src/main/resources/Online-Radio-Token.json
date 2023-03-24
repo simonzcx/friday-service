@@ -1,0 +1,394 @@
+{
+    "components": {
+        "schemas": {
+            "data361093814": {
+                "type": "object",
+                "properties": {
+                    "uid": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "第三方用户ID",
+                        "type": "integer"
+                    },
+                    "bizCode": {
+                        "nullable": true,
+                        "description": "业务编码",
+                        "type": "string"
+                    },
+                    "accessToken": {
+                        "nullable": true,
+                        "description": "访问令牌",
+                        "type": "string"
+                    },
+                    "bizUserId": {
+                        "nullable": true,
+                        "description": "业务用户编码",
+                        "type": "string"
+                    }
+                }
+            },
+            "data1312371527": {
+                "type": "object",
+                "properties": {
+                    "uid": {
+                        "nullable": true,
+                        "format": "int32",
+                        "description": "第三方用户ID",
+                        "type": "integer"
+                    },
+                    "bizCode": {
+                        "nullable": true,
+                        "description": "业务编码",
+                        "type": "string"
+                    },
+                    "accessToken": {
+                        "nullable": true,
+                        "description": "访问令牌",
+                        "type": "string"
+                    },
+                    "bizUserId": {
+                        "nullable": true,
+                        "description": "业务用户编码",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "servers": [
+        {
+            "variables": {
+                "baseUrl": {
+                }
+            },
+            "description": "Inferred Url",
+            "url": "1rWez1TMmjR"
+        }
+    ],
+    "openapi": "3.0.1",
+    "paths": {
+        "/v1/onlineradio/token-info/access-token": {
+            "post": {
+                "summary": "【VWASP-ONLINERADIO-3092】获取访问令牌信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "访问令牌数据实体类",
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/data361093814"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "访问令牌模块接口"
+                ]
+            }
+        },
+        "/v1/onlineradio/token-info/access-token-list": {
+            "get": {
+                "summary": "【VWASP-ONLINERADIO-3094】访问令牌信息列表",
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "object",
+                                            "$ref": "#/components/schemas/data1312371527"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "访问令牌模块接口"
+                ]
+            }
+        },
+        "/v1/onlineradio/token-info/add": {
+            "post": {
+                "summary": "【VWASP-ONLINERADIO-3090】保存访问令牌信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "expiresIn": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "访问令牌的失效时间，单位为秒",
+                                        "type": "integer"
+                                    },
+                                    "uid": {
+                                        "nullable": true,
+                                        "format": "int32",
+                                        "description": "第三方用户ID",
+                                        "type": "integer"
+                                    },
+                                    "scope": {
+                                        "nullable": true,
+                                        "description": "获得的授权范围，使用英文逗号分隔",
+                                        "type": "string",
+                                        "example": "subscribe:write,subscribe:read,open_pay:read"
+                                    },
+                                    "accessToken": {
+                                        "nullable": true,
+                                        "description": "访问令牌",
+                                        "type": "string"
+                                    },
+                                    "refreshToken": {
+                                        "nullable": true,
+                                        "description": "刷新令牌，用于刷新访问令牌",
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "boolean"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "访问令牌模块接口"
+                ]
+            }
+        },
+        "/v1/onlineradio/token-info/delete": {
+            "post": {
+                "summary": "【VWASP-ONLINERADIO-3091】删除访问令牌信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "boolean"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "访问令牌模块接口"
+                ]
+            }
+        },
+        "/v1/onlineradio/token-info/guest-access-token": {
+            "post": {
+                "summary": "【VWASP-ONLINERADIO-3093】获取游客访问令牌信息",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "headers": {
+                        },
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "traceId": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "errorCode": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respMsg": {
+                                            "nullable": true,
+                                            "description": "",
+                                            "type": "string"
+                                        },
+                                        "respCode": {
+                                            "nullable": true,
+                                            "format": "int32",
+                                            "description": "",
+                                            "type": "integer"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "访问令牌模块接口"
+                ]
+            }
+        }
+    },
+    "info": {
+        "contact": {
+            "name": "零Zero°F"
+        },
+        "description": "Online-Radio",
+        "termsOfService": "http://www.xiaoyaoji.cn",
+        "title": "Online-Radio-Token",
+        "version": "2022-08-28"
+    },
+    "tags": [
+        {
+            "name": "访问令牌模块接口"
+        }
+    ]
+}

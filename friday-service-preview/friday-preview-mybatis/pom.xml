@@ -8,7 +8,6 @@
     <artifactId>friday-preview-mybatis</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-
     <properties>
         <junit.version>4.12</junit.version>
         <mybatis.version>3.2.8</mybatis.version>
@@ -65,23 +64,5 @@
             </resource>
         </resources>
     </build>
-
-    <!-- 用于从远程仓库拉取jar包（优先级高于本地maven  settings.xml的仓库配置） -->
-    <repositories>
-        <repository>
-            <id>friday-maven</id>
-            <name>friday maven</name>
-            <url>http://100.104.251.96:8081/repository/maven-public/</url>
-        </repository>
-        <repository>
-            <id>friday-snapshots</id>
-            <name>friday snapshots</name>
-            <url>http://100.104.251.96:8081/repository/maven-snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
-    </repositories>
 
 </project>

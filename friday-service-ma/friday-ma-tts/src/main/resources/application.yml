@@ -1,0 +1,20 @@
+
+
+swagger:
+  enable: true
+  apiInfo:
+    contact:
+      email: ma@mobilityasia.com.cn
+      name: ma
+      url: https://mobilityasia.com
+    description: friday-ma-tts
+    termsOfServiceUrl:
+    title: friday-ma-tts
+    version: 1.0
+  docket:
+    groupName: friday-ma-tts
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

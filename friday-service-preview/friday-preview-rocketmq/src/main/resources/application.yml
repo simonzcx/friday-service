@@ -1,0 +1,9 @@
+
+rocketmq:
+  name-server: 10.38.50.47:9876
+  producer:
+    group: vwasp-dealer-dev
+    access-key: vwasp_dealer
+    secret-key: E0miX7rjk*EE8XXgC
+    send-message-timeout: 30000
+    topic-notification: vwasp_notification_push_input

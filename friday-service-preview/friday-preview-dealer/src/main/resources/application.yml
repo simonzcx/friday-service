@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+swagger:
+  enable: true
+  docket:
+    groupName: friday-preview-dealer
+  apiInfo:
+    contact:
+      email: https://www.google.com
+      name: friday
+      url: https://www.google.com
+    description: friday-preview-dealer
+    termsOfServiceUrl: 127.0.0.1:${server.port}
+    title: friday-preview-dealer
+    version: 1.0
+
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
