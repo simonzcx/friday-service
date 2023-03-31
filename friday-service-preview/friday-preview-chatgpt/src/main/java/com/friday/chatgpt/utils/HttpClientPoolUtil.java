@@ -171,7 +171,7 @@ public class HttpClientPoolUtil implements InitializingBean {
             HttpPost httpPost = new HttpPost(url);
             config(httpPost);
             httpPost.setHeader("Accept", "application/json");
-            httpPost.setHeader("Authorization", "Bearer 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");
+            httpPost.setHeader("Authorization", "Bearer xxxx-token");
 
             StringEntity entity = new StringEntity(jsonStr, "UTF-8");
             entity.setContentType("application/json");

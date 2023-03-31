@@ -5,7 +5,7 @@ package com.friday.chat;
  * @Create ${DATE} ${TIME}
  * @Description
  */
-public class Main {
+public class ChatApplication {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }

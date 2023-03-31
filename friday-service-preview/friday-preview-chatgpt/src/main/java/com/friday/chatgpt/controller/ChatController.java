@@ -55,7 +55,7 @@ public class ChatController {
         HttpHeaders headers = new HttpHeaders();
 
         headers.put("Authorization", new ArrayList<String>() {{
-            add("Bearer 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");
+            add("Bearer xxxx-token");
         }});
         HttpEntity<String> httpEntity = new HttpEntity<>(record.toString(), headers);
 

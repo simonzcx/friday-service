@@ -49,7 +49,7 @@ public class HttpClientUtils {
 
             httpPost.setConfig(requestConfig);
             httpPost.addHeader("Content-Type", CONTENT_TYPE);
-            httpPost.setHeader("Authorization", "Bearer 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");
+            httpPost.setHeader("Authorization", "Bearer xxxx-token");
             httpPost.setEntity(new StringEntity(request, "utf-8"));
 
             response = getHttpClientResponse(httpPost, httpClient);
